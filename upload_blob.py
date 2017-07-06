@@ -71,7 +71,6 @@ if ( table == 'VANKIOSKMEDIA'):
     print('---------------table1 start----------')
     # getting data between dates #
     querystring = "select * from ODSDADM.VANKIOSKMEDIA WHERE DATESTAMP BETWEEN TO_DATE('"+fromdate+"','YYYY/MM/DD') AND TO_DATE('"+todate+"','YYYY/MM/DD') AND CUSTOMERIMGURL is null"
-    print "Queried the table -2"
     cursor.execute(querystring)
     data = cursor.fetchall()
     for row in data :
@@ -88,7 +87,6 @@ if ( table == 'VANKIOSKMEDIA'):
 
         ID = row[5]
         query = "select VANSTOREID FROM ODSDADM.VANCUSTOMERENGAGEMENT WHERE CUSTOMERID = "+str(customerId)+" AND ROWNUM =1"
-        print "VAN Store id query -4"
         cursor.execute(query)
         stores = cursor.fetchone()
         storeId = stores[0]
